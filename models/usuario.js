@@ -30,6 +30,10 @@ const UsuarioSchema = new Schema({
     google: {
         type: Boolean,
         default: false
+    },
+    no_control: {
+        type: String,
+        required: true
     }
 });
 
@@ -38,6 +42,6 @@ const UsuarioSchema = new Schema({
 //     return usuario;
 // }
 
-UsuarioSchema.plugin(mongooseHidden, { hidden: { _id: false, password: true } });
+UsuarioSchema.plugin(mongooseHidden, { hidden: { _id: false, password: true, no_control: true } });
 
 module.exports = model( 'Usuario', UsuarioSchema );

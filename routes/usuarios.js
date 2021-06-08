@@ -27,6 +27,7 @@ router.get('/', usuariosGet); //(req, res) => {
 // });
 
 router.post('/', [
+    check('no_control', 'El número de control es obligatorio').not().isEmpty(),
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('password', 'El password debe de ser más de 6 letras').isLength({ min: 6 }),
     check('correo', 'El correo no es valido').isEmail(),
